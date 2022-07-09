@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: pet-deploy
+    labels:
+      name: pet-deploy
+      app: demo-pet
+spec:
+  replicas: 2
+  selector:
+     matchLabels:
+        name: pet-pod
+        app: demo-pet
+  template:
+    metadata:  
+      name: pet-pod
+      labels:
+        name: pet-pod
+        app: demo-pet
+    spec:
+      containers:
+        - name: petclinic
+          image: arey/springboot-petclinic
+          ports:
+            - containerPort: 8080
