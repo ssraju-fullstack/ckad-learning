@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-deploy
+  labels:
+    name: jenkins-deploy
+    app: demo-jenkins
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: jenkins-pod
+      app: demo-jenkins
+  template:
+    metadata:
+      labels:
+        name: jenkins-pod
+        app: demo-jenkins
+    spec:
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins
+        ports:
+        - containerPort: 8080
