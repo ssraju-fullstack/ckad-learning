@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prom-deploy
+  labels:
+    name: prom-deploy
+    app: demo-prom
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: prom-pod
+      app: demo-prom
+  template:
+    metadata:
+      labels:
+        name: prom-pod
+        app: demo-prom
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus
+        ports:
+        - containerPort: 9090
