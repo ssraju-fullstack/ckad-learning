@@ -4,7 +4,9 @@
 # Apache HTTPD
   * Refer to yml files under _apache-https-deployment-service_ folder to deploy httpd  with container port on 80 and expose the httpd service for external access in kube cluster.
   
-  
-   
 # Petclinic SpringBoot Application
   * Refer to yml files under _petclinic-deployment-service_ folder to deploy springboot application with container port on 8080 and expose the app for external access in kube cluster.
+  
+# Prometheus Metrics
+  * Refer to yml files under _prometheus-deployment-service_ folder to deploy Prometheus with container port on 9090 and expose the /metrics for external access in kube cluster.
+
