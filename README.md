@@ -20,4 +20,27 @@
        - Navitage to Jenkins secrets folder _/var/jenkins_home/secrets/_
        - Copy contents of file _cat initialAdminPassword_
        - Provide the password in Jenkins home page
+       
+       
+# Imperative Commands
+   - Create a deployment named webapp using the image kodekloud/webapp-color with 3 replicas 
+        * kubectl create deployment webapp --image=kodekloud/webapp-color --replicas=3 --dry-run=client -o yaml > webapp-definition.yaml
+         
+   -  Expose redis pod on ClusterIP 6379   
+        * kubectl expose pod redis --port=6379 --name=redis-service --dry-run=client -o yaml > redis-service.yaml
+        
+   - Deploy Redis pod with image redis:alpine and label tier=db
+        * kubectl  run redis --image=redis:alpine -l tier=db --dry-run=client -o yaml  > redis-definition.yaml  
+       
+   -  Create a new namespace called dev-ns
+        * kubectl create namespace dev-ns --dry-run=client -o yaml > dev-ns-definition.yaml
+    
+   - Create a new deployment called redis-deploy in the dev-ns namespace with the redis image. It should have 2 replicas.
+        * kubectl create deployment redis-deploy -n dev-ns --image=redis --replicas=2 --dry-run=client -o yaml > redis-deploy-definition.yaml
+        
+   - Create a pod called httpd using the image httpd:alpine in the default namespace
+        * kubectl run httpd --image=httpd:alpine
+        
+   -  Create a service of type ClusterIP by the same name (httpd). The target port for the service should be 80. 
+        * kubectl expose pod httpd --port=80
 
