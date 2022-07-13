@@ -13,6 +13,9 @@
 # Grafana Dashboard
   * Refer to yml files under _grafana-deployment-service_ folder to deploy Grafana with container port on 3000 and expose the dashboard for external access.
   
+# ConfigMaps
+  * Refer to yml files under _configmaps_ folder to use configmap in pod definition
+  
 # Jenkins
   * Refer to yml files under _jenkins-deployment-service_ folder to deploy Jenkins with container port on 8080 and expose it for external access.
      - First time access to Jenkins requires  administrator password, follow below steps;
