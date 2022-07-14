@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-dashboard
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: web-dashboard
+  template:
+    metadata: 
+        name: web-dashboard
+        labels:
+           name: web-dashboard 
+    spec:
+      containers:
+      - env:
+        - name: PYTHONUNBUFFERED
+          value: "1"
+        image: gcr.io/kodekloud/customimage/my-kubernetes-dashboard
+        name: web-dashboard
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      serviceAccountName: dashboard-sa 
