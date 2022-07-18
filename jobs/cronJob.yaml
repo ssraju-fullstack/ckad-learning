@@ -1,0 +1,27 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: math-add-job-3
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: math-add-job-3
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - command:
+            - expr
+            - "3"
+            - +
+            - "2"
+            image: ubuntu
+            name: math-add-job-3
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '*/1 * * * *'
+status: {}
