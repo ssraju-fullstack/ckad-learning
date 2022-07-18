@@ -46,4 +46,9 @@
         
    -  Create a service of type ClusterIP by the same name (httpd). The target port for the service should be 80. 
         * kubectl expose pod httpd --port=80
+        
+   -  Create a cron job to execute math expression
+        * kubectl create cronjob math-add-job-cron --schedule="*/1 * * * *"  --image=ubuntu --dry-run=client -o yaml  -- expr 3 + 2  > cron-job.yaml
 
+   -  Create a  job to execute math expression
+        * kubectl create job math-add-job  --image=ubuntu --dry-run=client -o yaml  -- expr 3 + 2  > job.yaml
